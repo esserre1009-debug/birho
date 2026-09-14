@@ -16,27 +16,38 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);
   position:sticky;top:0;z-index:100;
   background:var(--navy);
   display:flex;align-items:center;
-  padding:.4rem 1rem;
-  min-height:70px;
+  padding:.3rem .8rem;
+  min-height:50px;
 }
-.topbar-logo{height:125px;flex-shrink:0;margin-top:-10px;position:relative;z-index:101;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
-.topbar-text{color:rgba(255,255,255,.7);font-size:.7rem;margin-left:auto;white-space:nowrap;letter-spacing:.03em}
+.topbar-logo{height:74px;flex-shrink:0;margin-top:-6px;position:relative;z-index:101;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));transition:height .25s ease,margin-top .25s ease}
+.topbar-text{color:rgba(255,255,255,.7);font-size:.62rem;margin-left:auto;white-space:nowrap;letter-spacing:.03em}
+@media(min-width:640px){
+  .topbar{padding:.4rem 1rem;min-height:70px}
+  .topbar-logo{height:125px;margin-top:-10px}
+  .topbar-text{font-size:.7rem}
+}
 
 /* HERO */
-.hero{position:relative;overflow:hidden;max-height:480px}
-.hero-img{width:100%;display:block;height:480px;object-fit:cover;object-position:center top}
+.hero{position:relative;overflow:hidden;max-height:640px}
+.hero-img{width:100%;display:block;height:520px;object-fit:cover;object-position:center 25%}
 .hero-overlay{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(0deg,rgba(27,31,75,.88) 0%,rgba(27,31,75,.15) 70%,transparent 100%);
-  padding:1.75rem 1.5rem 1.4rem;color:var(--white);
+  background:linear-gradient(0deg,rgba(27,31,75,.92) 0%,rgba(27,31,75,.35) 65%,rgba(27,31,75,.05) 100%);
+  padding:1.5rem 1.25rem 1.5rem;color:var(--white);
 }
 .hero-overlay h1{
-  font-family:'Bangers',cursive;font-size:1.75rem;letter-spacing:.04em;line-height:1.25;
-  text-shadow:3px 3px 0 var(--red);margin-bottom:.5rem;
+  font-family:'Bangers',cursive;font-size:1.55rem;letter-spacing:.03em;line-height:1.28;
+  text-shadow:2px 2px 0 var(--red);margin-bottom:.45rem;
   max-width:640px;
 }
-.hero-overlay .sub{font-size:1.02rem;opacity:.92;font-weight:500;letter-spacing:.01em;max-width:520px}
+.hero-overlay .sub{font-size:.92rem;opacity:.94;font-weight:500;letter-spacing:.01em;max-width:520px}
+@media(min-width:480px){
+  .hero-img{height:480px;object-position:center top}
+  .hero-overlay h1{font-size:1.9rem}
+  .hero-overlay .sub{font-size:1rem}
+}
 @media(min-width:640px){
+  .hero{max-height:480px}
   .hero-overlay h1{font-size:2.5rem}
   .hero-overlay .sub{font-size:1.2rem}
 }
@@ -46,16 +57,18 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);
 }
 
 /* BADGE — enhanced ribbon, sticky-on-scroll with transparency */
+.badge-strip a{ color:var(--white)!important; text-decoration: none;}
 .badge-strip{
-  position:sticky;top:70px;z-index:99;
+  position:sticky;top:50px;z-index:99;
   background:linear-gradient(90deg,var(--red),#ef3b40,var(--red));
-  color:var(--white);
+  color:var(--white)!important;
   text-align:center;
-  padding:.7rem 1rem;
+  padding:1.1rem 1rem;
   font-weight:800;
-  font-size:.9rem;
+  font-size:1.12rem;
+  line-height:1.3;
   letter-spacing:.03em;
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
   box-shadow:0 3px 14px rgba(212,33,39,.45);
   border-bottom:2px solid rgba(255,213,0,.6);
   cursor:default;
@@ -64,7 +77,10 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);
              backdrop-filter .35s ease,-webkit-backdrop-filter .35s ease,font-size .35s ease;
   animation:badgeGlow 2.6s ease-in-out infinite;
 }
-.badge-strip .badge-icon{font-size:1.05em;animation:badgeBounce 1.8s ease-in-out infinite}
+.badge-strip .badge-icon{font-size:1.25em;animation:badgeBounce 1.8s ease-in-out infinite}
+@media(min-width:640px){
+  .badge-strip{top:70px;padding:.9rem 1rem;font-size:1.05rem}
+}
 @keyframes badgeGlow{
   0%,100%{box-shadow:0 3px 14px rgba(212,33,39,.45)}
   50%{box-shadow:0 3px 22px rgba(255,213,0,.55)}
@@ -84,8 +100,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);
   background:rgba(212,33,39,.55);
   backdrop-filter:blur(10px) saturate(140%);
   -webkit-backdrop-filter:blur(10px) saturate(140%);
-  padding:.5rem 1rem;
-  font-size:.78rem;
+  padding:.65rem 1rem;
+  font-size:.9rem;
   box-shadow:0 2px 12px rgba(0,0,0,.25);
   animation:none;
 }
@@ -105,10 +121,15 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);
 section{padding:1.75rem 1rem}
 .section-title{font-family:'Bangers',cursive;font-size:1.45rem;color:var(--navy);letter-spacing:.03em;margin-bottom:.15rem}
 .section-sub{font-size:.86rem;color:var(--text-light);margin-bottom:1rem}
-.tabs{display:flex;gap:.4rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;margin-bottom:1.25rem}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:.5rem 1rem;border-radius:30px;border:2px solid var(--navy);background:transparent;color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;transition:all .18s;white-space:nowrap}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding-bottom:2px;margin-bottom:1.25rem}
+.tab{flex:0 1 auto;padding:.45rem .85rem;border-radius:30px;border:2px solid var(--navy);background:transparent;color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.74rem;cursor:pointer;transition:all .18s;white-space:nowrap}
 .tab.active{background:var(--navy);color:var(--white)}
+@media(min-width:400px){.tab{font-size:.78rem;padding:.5rem 1rem}}
+@media(min-width:640px){
+  .tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{font-size:.82rem}
+}
 .courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .course-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);border-left:4px solid var(--red)}
 .course-card-img{width:100%;height:110px;object-fit:cover;display:block;background:var(--navy)}
@@ -129,7 +150,7 @@ section{padding:1.75rem 1rem}
 .footer-rule{border:none;border-top:1px solid rgba(255,255,255,.12);margin:0 1.5rem}
 .footer-inner{display:flex;flex-direction:column;align-items:center;gap:1.25rem;padding:1.5rem 1.25rem}
 .footer-info{font-size:.72rem;line-height:1.7;text-align:center}
-.footer-logo{height:55px;opacity:.8}
+.footer-logo{height:125px;opacity:.8}
 .footer-links{display:flex;gap:1.5rem;text-align:center}
 .footer-links-col h5{color:var(--red);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
 .footer-links-col a{display:block;color:rgba(255,255,255,.55);text-decoration:none;font-size:.68rem;line-height:1.8}
@@ -148,14 +169,17 @@ section{padding:1.75rem 1rem}
 </div>
 
 <header class="hero">
-  <img class="hero-img" src="hero.jpeg" alt="British Institutes Rho">
+  <picture>
+    <source media="(max-width:639px)" srcset="hero_mob.jpeg">
+    <img class="hero-img" src="hero.jpeg" alt="British Institutes Rho">
+  </picture>
   <div class="hero-overlay">
     <h1>Il futuro inizia da una nuova lingua: trova la tua voce!</h1>
     <p class="sub">Percorsi linguistici per Bambini · Ragazzi · Adulti · Professionisti</p>
   </div>
 </header>
 
-<div class="badge-strip"><span class="badge-icon">🎓</span>Iscrizioni aperte — Stagione 2026/2027<span class="badge-icon">🎓</span></div>
+<div class="badge-strip"><a href="https://british-institutes-language-centre-rho-ets.reservio.com/" target="_blank"><span class="badge-icon">🎓</span>Iscrizioni aperte — Stagione 2026/2027<span class="badge-icon">🎓</span></a></div>
 
 <div class="cta-section">
   <h2>Non perdere tempo, scopri quanto sei bravo o come diventarlo</h2>
@@ -240,12 +264,12 @@ section{padding:1.75rem 1rem}
 <footer class="site-footer">
   <hr class="footer-rule">
   <div class="footer-inner">
-    <div class="footer-info">© British Institutes Rho<br>Via Don D. Albertario — 20017 Rho<br>P.iva 00000000000</div>
-    <img class="footer-logo" src="bi-bg.png" alt="British Institutes">
+    <div class="footer-info">© British Institutes Rho<br>Via Don D. Albertario 27 — 20017 Rho<br>P.iva 09130610968</div>
+    <img class="footer-logo" src="https://web.britishinstitutes.it/images/logo-bi.png" alt="British Institutes">
     <div class="footer-links">
       <div class="footer-links-col"><h5>Contatti</h5><a href="mailto:rho@britishinstitutes.org">Email</a><a href="tel:+393456822580">Telefono</a><a href="https://www.britishinstitutes.it/rho/" target="_blank">Sito web</a></div>
-      <div class="footer-links-col"><h5>Social</h5><a href="#">Facebook</a><a href="#">Instagram</a></div>
-      <div class="footer-links-col"><h5>Utilities</h5><a href="https://www.britishinstitutes.it/rho/test-online/" target="_blank">Test Online</a><a href="#">Privacy</a><a href="#">Cookie</a></div>
+      <div class="footer-links-col"><h5>Social</h5><a href="https://www.facebook.com/rhobritishinstitutes">Facebook</a><a href="https://www.instagram.com/britishinstitutesrho">Instagram</a></div>
+      <div class="footer-links-col"><h5>Utilities</h5><a href="https://www.britishinstitutes.it/rho/test-online/" target="_blank">Test Online</a><a href="https://www.iubenda.com/privacy-policy/50038610/full-legal" target="_blank">Privacy</a></div>
     </div>
   </div>
 </footer>
