@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>British Institutes Rho — Corsi 2026/27</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#d42127;--navy:#1b1f4b;--blue:#0057a8;--yellow:#ffd500;--white:#fff;--cream:#faf8f5;--text:#222;--text-light:#555;--radius:14px}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* TOPBAR — sticky over hero */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  display:flex;align-items:center;
+  padding:.4rem 1rem;
+  min-height:70px;
+}
+.topbar-logo{height:125px;flex-shrink:0;margin-top:-10px;position:relative;z-index:101;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
+.topbar-text{color:rgba(255,255,255,.7);font-size:.7rem;margin-left:auto;white-space:nowrap;letter-spacing:.03em}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;max-height:480px}
+.hero-img{width:100%;display:block;height:480px;object-fit:cover;object-position:center top}
+.hero-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(27,31,75,.88) 0%,rgba(27,31,75,.15) 70%,transparent 100%);
+  padding:1.75rem 1.5rem 1.4rem;color:var(--white);
+}
+.hero-overlay h1{
+  font-family:'Bangers',cursive;font-size:1.75rem;letter-spacing:.04em;line-height:1.25;
+  text-shadow:3px 3px 0 var(--red);margin-bottom:.5rem;
+  max-width:640px;
+}
+.hero-overlay .sub{font-size:1.02rem;opacity:.92;font-weight:500;letter-spacing:.01em;max-width:520px}
+@media(min-width:640px){
+  .hero-overlay h1{font-size:2.5rem}
+  .hero-overlay .sub{font-size:1.2rem}
+}
+@media(min-width:960px){
+  .hero-overlay h1{font-size:3.1rem}
+  .hero-overlay .sub{font-size:1.35rem}
+}
+
+/* BADGE — enhanced ribbon, sticky-on-scroll with transparency */
+.badge-strip{
+  position:sticky;top:70px;z-index:99;
+  background:linear-gradient(90deg,var(--red),#ef3b40,var(--red));
+  color:var(--white);
+  text-align:center;
+  padding:.7rem 1rem;
+  font-weight:800;
+  font-size:.9rem;
+  letter-spacing:.03em;
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  box-shadow:0 3px 14px rgba(212,33,39,.45);
+  border-bottom:2px solid rgba(255,213,0,.6);
+  cursor:default;
+  overflow:hidden;
+  transition:background .35s ease,box-shadow .35s ease,padding .35s ease,
+             backdrop-filter .35s ease,-webkit-backdrop-filter .35s ease,font-size .35s ease;
+  animation:badgeGlow 2.6s ease-in-out infinite;
+}
+.badge-strip .badge-icon{font-size:1.05em;animation:badgeBounce 1.8s ease-in-out infinite}
+@keyframes badgeGlow{
+  0%,100%{box-shadow:0 3px 14px rgba(212,33,39,.45)}
+  50%{box-shadow:0 3px 22px rgba(255,213,0,.55)}
+}
+@keyframes badgeBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-2px)}
+}
+.badge-strip:hover{
+  background:linear-gradient(90deg,#b81a1f,var(--red),#b81a1f);
+  box-shadow:0 4px 26px rgba(255,213,0,.65);
+  padding:.85rem 1rem;
+}
+.badge-strip:hover .badge-icon{animation-duration:.6s}
+/* transparent glass state added by JS once user scrolls */
+.badge-strip.is-scrolled{
+  background:rgba(212,33,39,.55);
+  backdrop-filter:blur(10px) saturate(140%);
+  -webkit-backdrop-filter:blur(10px) saturate(140%);
+  padding:.5rem 1rem;
+  font-size:.78rem;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+  animation:none;
+}
+.badge-strip.is-scrolled .badge-icon{animation:none}
+
+/* CTA SECTION */
+.cta-section{background:var(--red);padding:1.75rem 1rem 2rem;text-align:center}
+.cta-section h2{font-family:'Bangers',cursive;font-size:1.4rem;color:var(--white);letter-spacing:.03em;margin-bottom:.3rem;text-shadow:1px 1px 0 rgba(0,0,0,.15)}
+.cta-section p{color:rgba(255,255,255,.8);font-size:.86rem;margin-bottom:1.1rem}
+.cta-pair{display:flex;flex-direction:column;gap:.65rem;max-width:500px;margin:0 auto}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:.45rem;text-decoration:none;font-weight:700;font-size:.92rem;padding:.95rem 1rem;border-radius:var(--radius);text-align:center;line-height:1.3;transition:transform .12s;border:none;cursor:pointer;width:100%}
+.cta-btn:active{transform:scale(.97)}
+.cta-gold{background:var(--yellow);color:var(--navy);box-shadow:0 4px 16px rgba(255,213,0,.4)}
+.cta-white{background:var(--white);color:var(--navy);box-shadow:0 4px 16px rgba(0,0,0,.12)}
+@media(min-width:480px){.cta-pair{flex-direction:row}.cta-btn{flex:1}}
+
+section{padding:1.75rem 1rem}
+.section-title{font-family:'Bangers',cursive;font-size:1.45rem;color:var(--navy);letter-spacing:.03em;margin-bottom:.15rem}
+.section-sub{font-size:.86rem;color:var(--text-light);margin-bottom:1rem}
+.tabs{display:flex;gap:.4rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;margin-bottom:1.25rem}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:.5rem 1rem;border-radius:30px;border:2px solid var(--navy);background:transparent;color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;transition:all .18s;white-space:nowrap}
+.tab.active{background:var(--navy);color:var(--white)}
+.courses-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.course-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);border-left:4px solid var(--red)}
+.course-card-img{width:100%;height:110px;object-fit:cover;display:block;background:var(--navy)}
+.course-card-body{padding:.65rem .7rem .75rem}
+.course-card-body h3{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.1rem}
+.course-age{font-size:.66rem;font-weight:700;color:var(--red);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.03em}
+.course-card-body p{font-size:.76rem;color:var(--text-light);line-height:1.45}
+@media(min-width:640px){.courses-grid{grid-template-columns:repeat(4,1fr);gap:1.25rem}.course-card-img{height:150px}}
+
+.comic-divider{width:100%;display:block;height:auto;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow)}
+.highlights{background:var(--navy);color:var(--white);padding:1.1rem 1rem}
+.highlights-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;max-width:500px;margin:0 auto}
+.highlight-item{text-align:center;padding:.55rem .4rem}
+.highlight-item h4{font-size:.78rem;font-weight:700}
+@media(min-width:640px){.highlights-grid{grid-template-columns:repeat(4,1fr);max-width:680px}}
+
+.site-footer{background:var(--navy);color:rgba(255,255,255,.55);padding:0}
+.footer-rule{border:none;border-top:1px solid rgba(255,255,255,.12);margin:0 1.5rem}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:1.25rem;padding:1.5rem 1.25rem}
+.footer-info{font-size:.72rem;line-height:1.7;text-align:center}
+.footer-logo{height:55px;opacity:.8}
+.footer-links{display:flex;gap:1.5rem;text-align:center}
+.footer-links-col h5{color:var(--red);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+.footer-links-col a{display:block;color:rgba(255,255,255,.55);text-decoration:none;font-size:.68rem;line-height:1.8}
+.footer-links-col a:hover{color:var(--white)}
+@media(min-width:640px){
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:flex-start;max-width:800px;margin:0 auto}
+  .footer-info{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="bi-bg.png" alt="British Institutes">
+  <span class="topbar-text">BI Italia | Rho</span>
+</div>
+
+<header class="hero">
+  <img class="hero-img" src="hero.jpeg" alt="British Institutes Rho">
+  <div class="hero-overlay">
+    <h1>Il futuro inizia da una nuova lingua: trova la tua voce!</h1>
+    <p class="sub">Percorsi linguistici per Bambini · Ragazzi · Adulti · Professionisti</p>
+  </div>
+</header>
+
+<div class="badge-strip"><span class="badge-icon">🎓</span>Iscrizioni aperte — Stagione 2026/2027<span class="badge-icon">🎓</span></div>
+
+<div class="cta-section">
+  <h2>Non perdere tempo, scopri quanto sei bravo o come diventarlo</h2>
+  <p>Fai il test e prenota una lezione di prova gratuita.</p>
+  <div class="cta-pair">
+    <a href="https://www.britishinstitutes.it/rho/test-online/" class="cta-btn cta-gold" target="_blank">Fai il test d'inglese online</a>
+    <a href="https://british-institutes-language-centre-rho-ets.reservio.com/" class="cta-btn cta-white" target="_blank">Prenota la sessione di prova</a>
+  </div>
+</div>
+
+<section id="corsi">
+  <h2 class="section-title">Scegli il tuo percorso</h2>
+  <p class="section-sub">Dai 3 anni in su, con metodi pensati per ogni fascia d'età</p>
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-cat="kids" role="tab">Bambini e Ragazzi</button>
+    <button class="tab" data-cat="adults" role="tab">Adulti e Aziende</button>
+    <button class="tab" data-cat="other" role="tab">Altre Lingue</button>
+  </div>
+  <div id="kids" class="courses-grid cat-panel">
+    <div class="course-card">
+      <img class="course-card-img" src="cat_tots.jpeg" alt="Tots — Primi Passi">
+      <div class="course-card-body"><h3>Tots — Primi Passi</h3><p class="course-age">3 – 5 anni</p><p>Inglese attraverso gioco, musica e attività sensoriali.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_kids.jpeg" alt="Kids">
+      <div class="course-card-body"><h3>Kids</h3><p class="course-age">6 – 10 anni</p><p>Lettura, scrittura e conversazione con attività interattive.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_tweens.jpeg" alt="Tweens">
+      <div class="course-card-body"><h3>Tweens</h3><p class="course-age">11 – 13 anni</p><p>Consolidamento e preparazione certificazioni Cambridge.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_teens.jpeg" alt="Teens">
+      <div class="course-card-body"><h3>Teens</h3><p class="course-age">14 – 18 anni</p><p>Certificazioni internazionali e sviluppo fluency.</p></div>
+    </div>
+  </div>
+  <div id="adults" class="courses-grid cat-panel" style="display:none">
+    <div class="course-card">
+      <img class="course-card-img" src="cat_general.jpeg" alt="General English">
+      <div class="course-card-body"><h3>General English</h3><p class="course-age">A1 › C2</p><p>Sicurezza nella comunicazione quotidiana e professionale.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_business.jpeg" alt="Business English">
+      <div class="course-card-body"><h3>Business English</h3><p class="course-age">Professionisti e Aziende</p><p>Meeting, presentazioni, negoziazione per il lavoro.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_certificazioni.jpeg" alt="Certificazioni">
+      <div class="course-card-body"><h3>Certificazioni</h3><p class="course-age">Cambridge · IELTS · TOEFL</p><p>Preparazione mirata con simulazioni e materiali ufficiali.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_conversazione.jpeg" alt="Conversazione">
+      <div class="course-card-body"><h3>Conversazione</h3><p class="course-age">Dal livello B1</p><p>Gruppi per superare il blocco e parlare con naturalezza.</p></div>
+    </div>
+  </div>
+  <div id="other" class="courses-grid cat-panel" style="display:none">
+    <div class="course-card">
+      <img class="course-card-img" src="cat_francese.jpeg" alt="Francese">
+      <div class="course-card-body"><h3>Francese</h3><p class="course-age">Tutti i livelli</p><p>Corsi individuali e di gruppo per studio, lavoro o passione.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_tedesco.jpeg" alt="Tedesco">
+      <div class="course-card-body"><h3>Tedesco</h3><p class="course-age">Tutti i livelli</p><p>Per il mercato DACH e certificazioni Goethe.</p></div>
+    </div>
+    <div class="course-card">
+      <img class="course-card-img" src="cat_spagnolo.jpeg" alt="Spagnolo">
+      <div class="course-card-body"><h3>Spagnolo</h3><p class="course-age">Tutti i livelli</p><p>Grammatica, conversazione e certificazioni DELE.</p></div>
+    </div>
+  </div>
+</section>
+
+<img class="comic-divider" src="bottom.jpeg" alt="British Institutes">
+
+<div class="highlights">
+  <div class="highlights-grid">
+    <div class="highlight-item"><h4>Docenti madrelingua</h4></div>
+    <div class="highlight-item"><h4>Classi ridotte</h4></div>
+    <div class="highlight-item"><h4>Centro esami</h4></div>
+    <div class="highlight-item"><h4>Percorsi su misura</h4></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <hr class="footer-rule">
+  <div class="footer-inner">
+    <div class="footer-info">© British Institutes Rho<br>Via Don D. Albertario — 20017 Rho<br>P.iva 00000000000</div>
+    <img class="footer-logo" src="bi-bg.png" alt="British Institutes">
+    <div class="footer-links">
+      <div class="footer-links-col"><h5>Contatti</h5><a href="mailto:rho@britishinstitutes.org">Email</a><a href="tel:+393456822580">Telefono</a><a href="https://www.britishinstitutes.it/rho/" target="_blank">Sito web</a></div>
+      <div class="footer-links-col"><h5>Social</h5><a href="#">Facebook</a><a href="#">Instagram</a></div>
+      <div class="footer-links-col"><h5>Utilities</h5><a href="https://www.britishinstitutes.it/rho/test-online/" target="_blank">Test Online</a><a href="#">Privacy</a><a href="#">Cookie</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+    tab.classList.add('active');
+    document.querySelectorAll('.cat-panel').forEach(function(p){p.style.display='none'});
+    document.getElementById(tab.getAttribute('data-cat')).style.display='grid';
+  });
+});
+
+/* Sticky badge under topbar + transparency on scroll */
+var topbarEl = document.querySelector('.topbar');
+var badgeEl = document.querySelector('.badge-strip');
+
+function updateBadgeOffset(){
+  var h = topbarEl.getBoundingClientRect().height;
+  badgeEl.style.top = h + 'px';
+}
+updateBadgeOffset();
+window.addEventListener('resize', updateBadgeOffset);
+
+function onScrollBadge(){
+  if(window.scrollY > 60){
+    badgeEl.classList.add('is-scrolled');
+  } else {
+    badgeEl.classList.remove('is-scrolled');
+  }
+}
+window.addEventListener('scroll', onScrollBadge, {passive:true});
+onScrollBadge();
+</script>
+</body>
+</html>
